@@ -2,6 +2,8 @@
 
 The Explorer theme is used in conjunction with the [Shopify CLI Theme Component Plugin] to create an isolated development and test environment for Theme Components inside of the Shopify Theme Editor.
 
+![2023-11-09 15-25-05](https://github.com/archetype-themes/explorer/assets/4837696/e23acff7-7c28-45e4-923b-5478881013f2)
+
 ## How it works
 
 Use the `shopify theme component dev [component-name]` command inside of a component collection like [archetype-themes/components]() to bootstrap your component development environment. 
