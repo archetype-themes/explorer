@@ -1,55 +1,30 @@
 <!doctype html>
-    <html lang="{{ request.locale.iso_code }}">
-      <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <meta name="theme-color" content="">
-        <link rel="canonical" href="{{ canonical_url }}">
-    
-        <title>{{ shop.name }}</title>
-    
-        <meta name="description" content="">
-    
-        {% style %}
-          *,
-          *::before,
-          *::after {
-            box-sizing: inherit;
-          }
-    
-          html {
-            box-sizing: border-box;
-            height: 100%;
-          }
-    
-          body {
-            display: flex;
-            flex-direction: column;
-            gap: 55px;
-            min-height: 100%;
-            margin: 0;
-            /* Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3) */
-            font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
-            line-height: 1.15; /* 1. Correct the line height in all browsers. */
-            -webkit-text-size-adjust: 100%; /* 2. Prevent adjustments of font size after orientation changes in iOS. */
-            -moz-tab-size: 4; /* 3. Use a more readable tab size (opinionated). */
-            tab-size: 4; /* 3 */
-          }
-        {% endstyle %}
-    
-        {% render 'importmap-tags' %}
-    
-        <script async src="{{ 'es-module-shims.js' | asset_url }}"></script>
-    
-        {{ content_for_header }}
-      </head>
-    
-      <body>
-        {{ content_for_layout }}
-    
-        {%- if request.design_mode -%}
-          <script src="http://localhost:35729/livereload.js"></script>
-        {%- endif -%}
-      </body>
-    </html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="">
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    <title>{{ shop.name }}</title>
+
+    <meta name="description" content="">
+
+    {%- liquid
+      render 'css-variables'
+      render 'import-map'
+      render 'is-land'
+    -%}
+
+    {{ content_for_header }}
+
+    <link type="text/css" href="{{ 'sample-collection.css' | asset_url }}" rel="stylesheet">
+</head>
+
+  <body>
+    <main>
+      {{ content_for_layout }}
+    </main>
+  </body>
+</html>
