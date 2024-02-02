@@ -1,0 +1,57 @@
+{% render 'component-c', title: section.settings.title, blocks: section.blocks %}
+
+{% schema %}
+{
+  "name": "Component C",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:labels.announcement_text",
+      "default": "Component C"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "component_a",
+      "name": "t:sections.component.blocks.component_a.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:labels.announcement_text",
+          "default": "Component A"
+        }
+      ]
+    },
+    {
+      "type": "component_b",
+      "name": "t:sections.component.blocks.component_b.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:labels.announcement_text",
+          "default": "Component B"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.component_c.presets.name",
+      "blocks": [
+        {
+          "type": "component_a"
+        },
+        {
+          "type": "component_b"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

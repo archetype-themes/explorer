@@ -1,0 +1,25 @@
+{
+  "sections": {
+    "component_c_0": {
+      "type": "component-c",
+      "disabled": false,
+      "blocks": {
+        "component_a": {
+          "type": "component_a"
+        },
+        "component_b": {
+          "type": "component_b"
+        }
+      },
+      "block_order": ["component_a", "component_b"]
+    },
+    "component_c_1": {
+      "type": "component-c",
+      "disabled": true
+    }
+  },
+  "order": [
+    "component_c_0",
+    "component_c_1"
+  ]
+}

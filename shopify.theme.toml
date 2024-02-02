@@ -1,0 +1,8 @@
+[component]
+type = "theme"
+name = "Expanse"
+locales-repo = "https://github.com/archetype-themes/locales.git"
+
+[component.collections.sample-collection]
+source = "/Users/miguel/Sites/sample-collection"
+components = []

@@ -1,0 +1,20 @@
+{% render 'component-b', title: section.settings.title %}
+
+{% schema %}
+{
+  "name": "Component B",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:labels.announcement_text",
+      "default": "Component B"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Component B"
+    }
+  ]
+}
+{% endschema %}
