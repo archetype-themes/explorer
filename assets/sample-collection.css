@@ -1,6 +1,26 @@
 /*! modern-normalize v2.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 /*! modern-normalize v2.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 /*! modern-normalize v2.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
+.index-section {
+  padding-top: 35px;
+  padding-bottom: 35px;
+
+  @media (width >= 750px) {
+    & {
+      padding-top: 55px;
+      padding-bottom: 55px;
+    }
+  }
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
 .component-a {
   background-color: #dfdbe5;
   background-image: var(--background-image);
@@ -14,6 +34,26 @@
 .component-a__title {
   background: #fff;
   padding: .5em;
+}
+
+.index-section {
+  padding-top: 35px;
+  padding-bottom: 35px;
+
+  @media (width >= 750px) {
+    & {
+      padding-top: 55px;
+      padding-bottom: 55px;
+    }
+  }
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
 }
 
 .component-b {
@@ -150,6 +190,26 @@ summary {
 body {
   font-family: var(--typeBasePrimary);
   font-weight: var(--typeBaseWeight);
+}
+
+.index-section {
+  padding-top: 35px;
+  padding-bottom: 35px;
+
+  @media (width >= 750px) {
+    & {
+      padding-top: 55px;
+      padding-bottom: 55px;
+    }
+  }
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
 }
 
 .component-c {

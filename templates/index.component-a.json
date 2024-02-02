@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "component_a_0": {
+      "type": "component-a",
+      "disabled": false
+    },
+    "component_a_1": {
+      "type": "component-a",
+      "disabled": false,
+      "settings": {
+        "title": ""
+      }
+    }
+  },
+  "order": [
+    "component_a_0",
+    "component_a_1"
+  ]
+}
