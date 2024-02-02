@@ -1,6 +1,6 @@
 [component]
 type = "theme"
-name = "Expanse"
+name = "Component Explorer"
 locales-repo = "https://github.com/archetype-themes/locales.git"
 
 [component.collections.sample-collection]
