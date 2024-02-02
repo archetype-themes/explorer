@@ -8,7 +8,7 @@
   </ul>
   {% liquid
     assign collection = collections['all']
-    assign product =collection.products | last
+    assign product = collection.products | last
   %}
   {% if product %}
     <h2>Product views</h2>
