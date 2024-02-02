@@ -15,7 +15,7 @@
     },
     "component_c_1": {
       "type": "component-c",
-      "disabled": true
+      "disabled": false
     }
   },
   "order": [
