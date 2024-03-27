@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ request.locale.iso_code }}">
+<html lang="{{ request.locale.iso_code }}" dir="{% render 'language-direction' %}">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,20 +11,37 @@
 
     <meta name="description" content="">
 
-    {%- liquid
-      render 'css-variables'
-      render 'import-map'
-      render 'is-land'
-    -%}
+    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+
+    {%- render 'font-preload-link', font: settings.type_heading_font -%}
+    {%- render 'font-preload-link', font: settings.type_body_font -%}
+
+    {%- render 'import-map' -%}
+    {%- render 'es-module-shims' -%}
+    {%- render 'is-land' -%}
+    {%- render 'preload-js' -%}
+
+    {%- render 'font-faces' -%}
+    {%- render 'css-variables' -%}
+
+    {%- style -%}
+      {%- for scheme in settings.color_schemes -%}
+        .color-{{ scheme.id }} {
+          --color-background: {{ scheme.settings.background.rgb }};
+          --color-foreground: {{ scheme.settings.text.rgb }};
+
+          background-color: rgb(var(--color-background));
+          color: rgb(var(--color-foreground));
+        }
+      {%- endfor -%}
+    {%- endstyle -%}
+
+    <script type="module" src="{{ 'theme.js' | asset_url }}"></script>
 
     {{ content_for_header }}
-
-    <link type="text/css" href="{{ 'sample-collection.css' | asset_url }}" rel="stylesheet">
-</head>
+  </head>
 
   <body>
-    <main>
-      {{ content_for_layout }}
-    </main>
+    {{ content_for_layout }}
   </body>
 </html>
