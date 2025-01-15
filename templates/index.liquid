@@ -53,77 +53,27 @@
   }
 </style>
 
-{%- liquid
-  assign collection = collections.all
-  assign product = collection.products | last
--%}
+{% render 'template-map' %}
 
-<!-- components-list-vars -->
+{% comment %} List of components{% endcomment %}
+<ul></ul>
 
-<ul>
-  {% assign limit = component_names.size | minus: 1 %}
-  {%- for i in (0..limit) -%}
-    {%- liquid
-      assign category = component_categories[i]
-      assign should_display = false
+<script>
+  // Get the template map data
+  const templateMapScript = document.querySelector('[data-template-map]');
+  const templateMap = JSON.parse(templateMapScript.textContent);
 
-      case category
-        when '404'
-          assign route = routes.root_url
-        when 'article'
-          assign route = article.url
-        when 'blog'
-          assign route = blog.url
-        when 'cart'
-          assign route = routes.cart_url
-        when 'collection'
-          assign sample_collection = collections | first
-          assign route = sample_collection.url
-        when 'customers/account'
-          assign route = routes.account_url
-        when 'customers/activate_account'
-          assign route = routes.account_url
-        when 'customers/addresses'
-          assign route = routes.account_addresses_url
-        when 'customers/login'
-          assign route = routes.account_login_url
-        when 'customers/order'
-          assign route = customer.order_url
-        when 'customers/register'
-          assign route = routes.account_register_url
-        when 'customers/reset_password'
-          assign route = routes.account_recover_url
-        when 'customers/order'
-          assign route = order.order_status_url
-        when 'gift_card'
-          assign route = gift_card.url
-        when 'index'
-          assign route = routes.root_url
-        when 'list-collections'
-          assign route = routes.collections_url
-        when 'page'
-          assign route = page.url
-        when 'password'
-          assign route = routes.root_url
-        when 'product'
-          assign route = product.url
-        when 'search'
-          assign route = search.url
-        else
-          assign route = routes.root_url
-      endcase
-
-      if category != 'product' or product != null
-        assign should_display = true
-      endif
-    -%}
-
-    {% if should_display %}
-      <li>
-        <a href="{{ route }}?view={{ template_files[i] }}">
-          <span>{{ component_names[i] }}</span><span>&rarr;</span>
+  // Generate the HTML
+  const ul = document.querySelector('ul');
+  Object.entries(templateMap).forEach(([componentName, routes]) => {
+    Object.entries(routes).forEach(([category, route]) => {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <a href="${route}">
+          <span>${componentName}</span><span>&rarr;</span>
         </a>
-      </li>
-    {%- endif -%}
-  {% endfor %}
-</ul>
+      `;
+      ul.appendChild(li);
+    });
+  });
+</script>
