@@ -11,6 +11,13 @@
 
     <meta name="description" content="">
 
+    {% if settings.favicon != blank -%}
+      <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 96 }}">
+      <link rel="apple-touch-icon" href="{{ settings.favicon | image_url: width: 180 }}">
+    {%- else -%}
+      <link rel="icon" href="data:,">
+    {%- endif %}
+
     <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
 
     {%- render 'font-preload-link', font: settings.heading_font -%}
