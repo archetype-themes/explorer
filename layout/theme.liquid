@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ request.locale.iso_code }}" dir="{% render 'language-direction' %}">
+<html lang="{{ request.locale.iso_code }}">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +10,13 @@
     <title>{{ shop.name }}</title>
 
     <meta name="description" content="">
+
+    {% if settings.favicon != blank -%}
+      <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 96 }}">
+      <link rel="apple-touch-icon" href="{{ settings.favicon | image_url: width: 180 }}">
+    {%- else -%}
+      <link rel="icon" href="data:,">
+    {%- endif %}
 
     <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
 
