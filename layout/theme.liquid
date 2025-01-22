@@ -105,14 +105,6 @@
       </h1>
     </header>
     <section class="explorer">
-      <h2 class="explorer">
-        {%- if view_name == '' or view_name == null -%}
-          Index
-        {%- else -%}
-          {{ view_name }}
-        {%- endif -%}
-      </h2>
-
       {{ content_for_layout }}
     </section>
   </body>
