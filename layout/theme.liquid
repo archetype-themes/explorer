@@ -30,9 +30,13 @@
 
     <style>
       header.explorer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         margin: 0;
         padding: 14px 16px;
         background: #171916;
+        color: white;
       }
 
       h1.explorer {
@@ -43,6 +47,7 @@
         font-weight: 500;
         line-height: 20px;
         word-wrap: break-word;
+        margin: 0;
       }
 
       h1.explorer a {
@@ -100,7 +105,20 @@
           {{ view_name }}
         {%- endif -%}
       </h1>
+
+      {%- if request.design_mode == false and view_name != blank -%}
+        <div class="explorer-actions">
+          {%- liquid
+            assign base_preview_path = request.path | append: '?view=' | append: view_name
+            assign preview_path = base_preview_path | url_encode
+            assign editor_link = '/admin/themes/' | append: theme.id | append: '/editor?previewPath=' | append: preview_path
+
+            render 'button', text: 'View in theme editor', href: editor_link, attributes: 'target="_blank"'
+          -%}
+        </div>
+      {%- endif -%}
     </header>
+
     <section class="explorer">
       {{ content_for_layout }}
     </section>
