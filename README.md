@@ -1,16 +1,17 @@
-# Explorer Theme
+# Component Explorer
 
-The Explorer theme is used in conjunction with the [Shopify CLI Theme Component Plugin] to create an isolated development and test environment for Theme Components inside of the Shopify Theme Editor.
+The Explorer theme is used in conjunction with the [Shopify CLI Theme Component Plugin]([https://github.com/archetype-themes/components](https://github.com/archetype-themes/plugin-theme-component)) to create an isolated development and test environment for Theme Components inside of the Shopify Theme Editor.
 
-![2023-11-09 15-25-05](https://github.com/archetype-themes/explorer/assets/4837696/e23acff7-7c28-45e4-923b-5478881013f2)
+![Google Chrome](https://github.com/user-attachments/assets/a0c037f8-057a-421e-a9f5-726d8ce6808f)
+
 
 ## How it works
 
-Use the `shopify theme component dev [component-name]` command inside of a component collection like [archetype-themes/components]() to bootstrap your component development environment. 
+Use the `shopify theme component dev [component-name]` command inside of a component collection like [archetype-themes/reference-components](https://github.com/archetype-themes/reference-components) to bootstrap your component development environment. 
 
 This command does the following operations:
-1. Copy the contents of `archetype-themes/explorer` repo into the `.explorer` directory
-2. Copy setup files located in `components/[component]/setup/[templates|sections]` into their respective directories in the `.explorer` directory
-3. Copy component build files `assets|locales|snippets` into their respective directories in the `.explorer` directory
-4. Runs `shopify theme dev` on the `.explorer` directory
+1. Copy the contents of `archetype-themes/explorer` repo into the `.dev` directory
+2. Copy setup files located in `components/[component]/setup/[templates|sections|config]` into their respective directories in the `.dev` directory
+3. Copy component files `snippets|assets` into their respective directories in the `.dev` directory
+4. Runs `shopify theme dev` on the `.dev` directory
 
