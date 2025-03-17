@@ -90,19 +90,23 @@
       -%}
     {%- endif -%}
 
-    <header class="explorer">
-      <h1 class="explorer">
-        {%- if view_name == '' or view_name == null -%}
-          Component Directory
-        {%- else -%}
-          <a href="/">Component Directory</a>
-          <span style="color: #9A9A9A;">&gt;</span>
-          {{ view_name }}
-        {%- endif -%}
-      </h1>
-    </header>
-    <section class="explorer">
+    {%- if view_name == '' or view_name == null -%}
+      <header class="explorer">
+        <h1 class="explorer">
+          {%- if view_name == '' or view_name == null -%}
+            Component Directory
+          {%- else -%}
+            <a href="/">Component Directory</a>
+            <span style="color: #9A9A9A;">&gt;</span>
+            {{ view_name }}
+          {%- endif -%}
+        </h1>
+      </header>
+      <section class="explorer">
+        {{ content_for_layout }}
+      </section>
+    {%- else -%}
       {{ content_for_layout }}
-    </section>
+    {%- endif -%}
   </body>
 </html>
